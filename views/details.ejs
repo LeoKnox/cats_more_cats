@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Bruce Cat Wayne</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h2>Details page for <%= cat.name %></h2>
+        <img src=<%= cat.image %>>
+        <h3>Favorite food: <%= cat.food %></h3>
+        <h3>Age: <%= cat.age %></h3>
+        <h4>Sleeping spots</h4>
+        <% for (var x in cat.spots) { %>
+            <p><%= cat.spots[x]%></p>    
+        <% } %>
+    </body>
+</html>

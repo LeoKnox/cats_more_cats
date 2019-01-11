@@ -1,0 +1,39 @@
+var express = require("express");
+console.log("Express= ", express);
+var app = express();
+console.log("App = ",app);
+
+app.use(express.static(__dirname + "/static"));
+app.set('views', __dirname + '/views');
+console.log(__dirname);
+app.set('view engine', 'ejs');
+
+app.get('/', function(request, response) {
+    response.render('index');
+})
+
+app.get('/cats', function(request, response) {
+    response.render('cats');
+})
+
+app.get('/cars', function(request, response) {
+    response.render('cars');
+})
+
+app.get('/form', function(request, response) {
+    response.render('form');
+})
+
+app.get('/bruce', function(request, response) {
+    var bruce = {name:'Bruce', food:'caviar', age:'5', spots:['alleys', 'cars', 'cat-cave'], image:'cat1.jpeg'};
+    response.render('details', {cat: bruce});
+})
+
+app.get('/cattie', function(request, response) {
+    var cattie = {name:'Cattie', food:'cattie food', age:'3', spots:['cat bed', 'cat owner'], image:'cat2.jpg'};
+    response.render('details', {cat: cattie});
+})
+
+app.listen(8000, function() {
+    console.log("listening on port 8000");
+})
